@@ -105,4 +105,8 @@ dependencies {
     // Glide
     implementation("com.github.bumptech.glide:compose:1.0.0-alpha.1")
 
+
+    // Multidex
+    implementation("androidx.multidex:multidex:2.0.1")
+
 }
