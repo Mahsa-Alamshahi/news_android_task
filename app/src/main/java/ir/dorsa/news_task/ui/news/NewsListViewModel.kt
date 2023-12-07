@@ -21,6 +21,8 @@ class NewsListViewModel @Inject constructor(
     var newsListState: State<NewsListState> = _newsListState
 
 
+
+
     fun getNews() {
         viewModelScope.launch {
             var newsList = getNewsListUseCase()

@@ -1,5 +1,6 @@
 package ir.dorsa.news_task.ui.news
 
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -23,10 +24,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ir.dorsa.news_task.R
+import ir.dorsa.news_task.common.isConnectionOn
 import ir.dorsa.news_task.data.data_source.remote.dto.News
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -38,9 +41,14 @@ fun NewsListScreen(
     onNewsClick: (News) -> Unit
     ) {
 
+    val context = LocalContext.current
 
     LaunchedEffect(key1 = Unit) {
+        if (context.isConnectionOn()) {
         getNewsList()
+        } else {
+            Toast.makeText(context, "Please check your internet connection.", Toast.LENGTH_SHORT).show()
+        }
     }
 
     Scaffold(
@@ -73,6 +81,8 @@ fun NewsListScreen(
             CircularProgressIndicator()
         } else if (newsListState.error.isNotBlank()) {
             Text(newsListState.error)
+
+            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
         } else if (newsListState.newsList.isEmpty()) {
             Text("Empty List")
         } else {

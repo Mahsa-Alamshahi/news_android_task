@@ -1,5 +1,6 @@
 package ir.dorsa.news_task.ui.survey
 
+import android.annotation.SuppressLint
 import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -21,8 +22,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
+import ir.dorsa.news_task.common.isConnectionOn
 
 
+@SuppressLint("SuspiciousIndentation")
 @Composable
 fun SurveyScreen(surveyState: SurveyState,
                  addComment: () -> Unit) {
@@ -70,7 +73,13 @@ fun SurveyScreen(surveyState: SurveyState,
         Button(
             onClick = {
                 isButtonClicked = true
-                      addComment()
+
+                if (context.isConnectionOn()) {
+                    addComment()
+                } else {
+                    Toast.makeText(context, "Please check your internet connection.", Toast.LENGTH_SHORT).show()
+                }
+
             },
         ) {
             Text(text = "Ok")
