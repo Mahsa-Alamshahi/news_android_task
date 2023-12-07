@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import dagger.hilt.android.AndroidEntryPoint
-import ir.dorsa.news_task.common.theme.NewsTaskTheme
+import ir.dorsa.news_task.common.ui.theme.NewsTaskTheme
 
 
 @AndroidEntryPoint

@@ -1,4 +1,4 @@
-package ir.dorsa.news_task.common.theme
+package ir.dorsa.news_task.common.ui.theme
 
 import android.app.Activity
 import android.os.Build
