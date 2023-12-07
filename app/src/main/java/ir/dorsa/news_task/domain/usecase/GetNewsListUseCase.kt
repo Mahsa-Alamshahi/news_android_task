@@ -1,5 +1,6 @@
 package ir.dorsa.news_task.domain.usecase
 
+import com.orhanobut.logger.Logger
 import ir.dorsa.news_task.common.Resource
 import ir.dorsa.news_task.data.data_source.remote.dto.NewsResponseItem
 import ir.dorsa.news_task.domain.repository.NewsRepository
