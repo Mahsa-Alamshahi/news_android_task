@@ -13,6 +13,7 @@ import ir.dorsa.news_task.data.data_source.remote.dto.News
 import ir.dorsa.news_task.ui.news.NewsListScreenRoute
 import ir.dorsa.news_task.ui.news_details.NewsDetailsScreenRoute
 import ir.dorsa.news_task.ui.survey.SurveyScreen
+import ir.dorsa.news_task.ui.survey.SurveyScreenRoute
 
 @Composable
 fun NavGraph() {
@@ -66,7 +67,7 @@ fun NavGraphBuilder.surveyRoute(navController: NavController) {
     composable(
         route = Screen.Survey.route
     ) {
-        SurveyScreen()
+        SurveyScreenRoute()
     }
 }
 

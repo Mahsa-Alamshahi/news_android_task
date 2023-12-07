@@ -12,6 +12,4 @@ class NewsRepositoryImpl @Inject constructor(private val apiService: ApiService)
           = apiService.newsList()
 
 
-
-
 }

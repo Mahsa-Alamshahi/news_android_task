@@ -1,5 +1,6 @@
 package ir.dorsa.news_task.ui.survey
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,16 +18,26 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 
 
 @Composable
-fun SurveyScreen(){
+fun SurveyScreen(surveyState: SurveyState,
+                 addComment: () -> Unit) {
+
+
+    val context = LocalContext.current
 
 
     var userName by remember { mutableStateOf("") }
     var description by remember { mutableStateOf("") }
+
+
+    var isButtonClicked by remember {
+        mutableStateOf(false)
+    }
 
 
     Column(modifier= Modifier.fillMaxSize()) {
@@ -44,7 +55,8 @@ fun SurveyScreen(){
 
         OutlinedTextField(
             modifier = Modifier
-                .fillMaxWidth().height(120.dp)
+                .fillMaxWidth()
+                .height(120.dp)
                 .padding(start = 15.dp, top = 10.dp, end = 15.dp),
             shape = RoundedCornerShape(5.dp),
             value = description,
@@ -57,9 +69,24 @@ fun SurveyScreen(){
 
         Button(
             onClick = {
+                isButtonClicked = true
+                      addComment()
             },
         ) {
             Text(text = "Ok")
+        }
+
+
+        if (isButtonClicked) {
+            if (surveyState.isLoading) {
+                Toast.makeText(context, "Is loading ...", Toast.LENGTH_SHORT).show()
+            } else if(surveyState.error.isNotBlank()) {
+                Toast.makeText(context, surveyState.error, Toast.LENGTH_SHORT).show()
+            } else if (surveyState.surveyList.isEmpty()){
+                Toast.makeText(context, "Empty List", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(context, surveyState.surveyList[0].survy, Toast.LENGTH_SHORT).show()
+            }
         }
 
     }
