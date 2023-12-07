@@ -91,5 +91,11 @@ dependencies {
     // Moshi
     implementation("com.squareup.moshi:moshi:1.14.0")
 
-    
+
+    // Lifecycle
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0-beta01")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0-beta01")
+    implementation ("androidx.lifecycle:lifecycle-runtime-compose:2.7.0-beta01")
+    implementation("androidx.compose.runtime:runtime-livedata:1.5.4")
+
 }
