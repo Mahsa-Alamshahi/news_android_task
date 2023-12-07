@@ -92,7 +92,7 @@ dependencies {
     implementation("com.squareup.moshi:moshi:1.14.0")
 
 
-    // Lifecycle
+    //Lifecycle
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0-beta01")
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0-beta01")
     implementation ("androidx.lifecycle:lifecycle-runtime-compose:2.7.0-beta01")
@@ -102,15 +102,19 @@ dependencies {
     //Navigation
     implementation("androidx.navigation:navigation-compose:2.7.5")
 
-    // Glide
+    //Glide
     implementation("com.github.bumptech.glide:compose:1.0.0-alpha.1")
 
 
-    // Multidex
+    //Multidex
     implementation("androidx.multidex:multidex:2.0.1")
 
 
     //Logger
     implementation("com.orhanobut:logger:2.2.0")
+
+
+    //Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
 
 }
