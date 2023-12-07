@@ -80,7 +80,7 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:2.45")
 
 
-    
+
     //Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
@@ -88,5 +88,8 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
 
 
+    // Moshi
+    implementation("com.squareup.moshi:moshi:1.14.0")
 
+    
 }
