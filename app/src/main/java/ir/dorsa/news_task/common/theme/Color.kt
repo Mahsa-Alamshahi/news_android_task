@@ -1,4 +1,4 @@
-package ir.dorsa.news_task.ui.theme
+package ir.dorsa.news_task.common.theme
 
 import androidx.compose.ui.graphics.Color
 

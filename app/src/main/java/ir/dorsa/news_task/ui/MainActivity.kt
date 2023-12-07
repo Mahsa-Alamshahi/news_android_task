@@ -1,4 +1,4 @@
-package ir.dorsa.news_task
+package ir.dorsa.news_task.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,7 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import ir.dorsa.news_task.ui.theme.NewsTaskTheme
+import ir.dorsa.news_task.common.theme.NewsTaskTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
