@@ -102,5 +102,7 @@ dependencies {
     //Navigation
     implementation("androidx.navigation:navigation-compose:2.7.5")
 
+    // Glide
+    implementation("com.github.bumptech.glide:compose:1.0.0-alpha.1")
 
 }
