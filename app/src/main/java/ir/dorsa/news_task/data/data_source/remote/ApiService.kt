@@ -11,6 +11,8 @@ interface ApiService {
     suspend fun newsList(
     ): NewsResponse
 
+
+
   @GET("survey")
     suspend fun survey(
     ): SurveyResponse

@@ -18,6 +18,8 @@ fun Context.isConnectionOn(): Boolean {
     }
 }
 
+
+
 private fun postAndroidMInternetCheck(
     connectivityManager: ConnectivityManager
 ): Boolean {
@@ -29,6 +31,8 @@ private fun postAndroidMInternetCheck(
             connection.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
                     connection.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR))
 }
+
+
 
 private fun preAndroidMInternetCheck(
     connectivityManager: ConnectivityManager

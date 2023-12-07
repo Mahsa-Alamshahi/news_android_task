@@ -18,10 +18,11 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
+
+
     @Singleton
     @Provides
     fun provideHttpClient(): OkHttpClient {
-
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.HEADERS
         interceptor.level = HttpLoggingInterceptor.Level.BODY
@@ -39,9 +40,15 @@ object NetworkModule {
         return builder.build()
     }
 
+
+
+
     @Singleton
     @Provides
     fun provideConverterFactory(): GsonConverterFactory = GsonConverterFactory.create()
+
+
+
 
 
     @Singleton
@@ -55,6 +62,9 @@ object NetworkModule {
             .addConverterFactory(gsonConverterFactory)
             .build()
     }
+
+
+
 
     @Singleton
     @Provides

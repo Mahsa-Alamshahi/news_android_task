@@ -12,7 +12,6 @@ import ir.dorsa.news_task.common.AppConstants.NEWS_DETAILS_ARGUMENT_KEY
 import ir.dorsa.news_task.data.data_source.remote.dto.News
 import ir.dorsa.news_task.ui.news.NewsListScreenRoute
 import ir.dorsa.news_task.ui.news_details.NewsDetailsScreenRoute
-import ir.dorsa.news_task.ui.survey.SurveyScreen
 import ir.dorsa.news_task.ui.survey.SurveyScreenRoute
 
 @Composable
@@ -24,7 +23,7 @@ fun NavGraph() {
 
         newsListRoute(navController)
         newsDetailsRoute()
-        surveyRoute(navController)
+        surveyRoute()
     }
 }
 
@@ -37,6 +36,7 @@ fun NavGraphBuilder.newsListRoute(navController: NavController) {
         NewsListScreenRoute(onSurveyClick = {
             navController.navigate(Screen.Survey.route)
         }) { news ->
+
             val newsJsonString = news.toJson()
             navController.navigate(Screen.NewsDetails.passNews(newsJsonString))
 
@@ -63,7 +63,8 @@ fun NavGraphBuilder.newsDetailsRoute() {
 }
 
 
-fun NavGraphBuilder.surveyRoute(navController: NavController) {
+
+fun NavGraphBuilder.surveyRoute() {
     composable(
         route = Screen.Survey.route
     ) {

@@ -31,7 +31,9 @@ import androidx.compose.ui.unit.dp
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.orhanobut.logger.Logger
 import ir.dorsa.news_task.R
+import ir.dorsa.news_task.common.datepicker.PersianCalendar
 import ir.dorsa.news_task.data.data_source.remote.dto.News
 
 @OptIn(ExperimentalGlideComposeApi::class)
@@ -41,6 +43,12 @@ fun NewsListItem(news: News, onNewsClick: (News) -> Unit) {
 
     val configuration = LocalConfiguration.current
     val heightInDp = configuration.screenHeightDp.dp
+
+
+
+    val persianCalender = PersianCalendar()
+    persianCalender.timeInMillis = news.date.toLong()
+
 
 
     Card(
@@ -143,7 +151,7 @@ fun NewsListItem(news: News, onNewsClick: (News) -> Unit) {
 
 
                         Text(
-                            text = "تاریخ خبر: " + news.date.toString(),
+                            text = "تاریخ خبر: " + persianCalender.persianLongDate,
                             modifier = Modifier.padding(bottom = 4.dp),
                             maxLines = 1,
                             style = MaterialTheme.typography.labelSmall,

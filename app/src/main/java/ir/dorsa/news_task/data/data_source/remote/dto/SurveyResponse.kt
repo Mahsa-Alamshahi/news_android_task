@@ -8,5 +8,5 @@ class SurveyResponse : ArrayList<SurveyResponseItem>()
 
 data class SurveyResponseItem(
     @SerializedName("survy")
-    val survy: String
+    val survey: String
 )
