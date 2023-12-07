@@ -99,4 +99,8 @@ dependencies {
     implementation("androidx.compose.runtime:runtime-livedata:1.5.4")
 
 
+    //Navigation
+    implementation("androidx.navigation:navigation-compose:2.7.5")
+
+
 }
