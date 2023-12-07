@@ -1,8 +1,7 @@
 package ir.dorsa.news_task.domain.usecase
 
-import com.orhanobut.logger.Logger
 import ir.dorsa.news_task.common.Resource
-import ir.dorsa.news_task.data.data_source.remote.dto.NewsResponseItem
+import ir.dorsa.news_task.data.data_source.remote.dto.News
 import ir.dorsa.news_task.domain.repository.NewsRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -13,7 +12,7 @@ import javax.inject.Inject
 class GetNewsListUseCase @Inject constructor(private val newsRepository: NewsRepository) {
 
 
-    suspend operator fun invoke(): Flow<Resource<List<NewsResponseItem>>> = flow {
+    suspend operator fun invoke(): Flow<Resource<List<News>>> = flow {
         try {
             emit(Resource.Loading())
             val newsList = newsRepository.getNewsList().toList()

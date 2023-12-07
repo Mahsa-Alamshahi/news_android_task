@@ -2,7 +2,7 @@ package ir.dorsa.news_task.data.data_source.remote.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class NewsResponseItem(
+data class News(
     @SerializedName("date")
     val date: Int,
     @SerializedName("description")
