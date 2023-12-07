@@ -109,4 +109,8 @@ dependencies {
     // Multidex
     implementation("androidx.multidex:multidex:2.0.1")
 
+
+    //Logger
+    implementation("com.orhanobut:logger:2.2.0")
+
 }
