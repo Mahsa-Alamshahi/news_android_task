@@ -7,7 +7,7 @@ interface ApiService {
 
 
     @GET("news")
-    suspend fun placeList(
+    suspend fun newsList(
     ): NewsResponse
 
 
