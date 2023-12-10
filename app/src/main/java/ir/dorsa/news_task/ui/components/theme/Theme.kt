@@ -1,4 +1,4 @@
-package ir.dorsa.news_task.common.ui.theme
+package ir.dorsa.news_task.ui.components.theme
 
 import android.app.Activity
 import android.os.Build
@@ -16,13 +16,13 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
+    primary = Red40,
     secondary = PurpleGrey80,
     tertiary = Pink80
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
+    primary = Red40,
     secondary = PurpleGrey40,
     tertiary = Pink40
 

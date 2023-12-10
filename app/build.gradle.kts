@@ -127,4 +127,8 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
 
 
+    //Accompanist
+    implementation("com.google.accompanist:accompanist-insets-ui:0.31.5-beta")
+
+
 }

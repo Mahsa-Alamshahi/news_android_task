@@ -1,4 +1,4 @@
-package ir.dorsa.news_task.ui.news
+package ir.dorsa.news_task.ui.news_list
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
@@ -21,29 +21,54 @@ class NewsListViewModel @Inject constructor(
     var newsListState: State<NewsListState> = _newsListState
 
 
-
-
     fun getNews() {
         viewModelScope.launch {
-            var newsList = getNewsListUseCase()
-            newsList.collect {result ->
-                Logger.d(result)
-                when(result){
-                    is Resource.Loading ->{
+            val newsList = getNewsListUseCase()
+            newsList.collect { result ->
+                when (result) {
+                    is Resource.Loading -> {
                         _newsListState.value = NewsListState(isLoading = true)
                     }
-                    is Resource.Success ->{
+
+                    is Resource.Success -> {
                         _newsListState.value = NewsListState(newsList = result.data ?: emptyList())
-                        Logger.d(_newsListState.value)
                     }
-                    is Resource.Failed ->{
+
+                    is Resource.Failed -> {
                         _newsListState.value =
                             NewsListState(error = result.message ?: "An unexpected error occured.")
                     }
                 }
-
             }
         }
     }
+
+
+    fun filterList(filterBy: String) {
+        when (filterBy) {
+            SortType.values()[0].sortBy -> {
+                sortByViewCount()
+            }
+            SortType.values()[1].sortBy  -> {
+                sortByDate()
+            }
+        }
+    }
+
+
+
+   private fun sortByViewCount(){
+           _newsListState.value = NewsListState(newsList = _newsListState.value.newsList.sortedBy {
+               it.viewCount
+           })
+    }
+
+
+   private fun sortByDate(){
+           _newsListState.value = NewsListState(newsList = _newsListState.value.newsList.sortedBy {
+               it.date
+           })
+    }
+
 
 }

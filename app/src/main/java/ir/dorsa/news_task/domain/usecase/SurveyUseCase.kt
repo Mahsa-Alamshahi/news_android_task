@@ -1,7 +1,6 @@
 package ir.dorsa.news_task.domain.usecase
 
 import ir.dorsa.news_task.common.Resource
-import ir.dorsa.news_task.data.data_source.remote.dto.SurveyResponse
 import ir.dorsa.news_task.data.data_source.remote.dto.SurveyResponseItem
 import ir.dorsa.news_task.domain.repository.SurveyRepository
 import kotlinx.coroutines.flow.Flow

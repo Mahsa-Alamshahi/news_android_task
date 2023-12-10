@@ -10,8 +10,8 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import ir.dorsa.news_task.common.AppConstants.NEWS_DETAILS_ARGUMENT_KEY
 import ir.dorsa.news_task.data.data_source.remote.dto.News
-import ir.dorsa.news_task.ui.news.NewsListScreenRoute
 import ir.dorsa.news_task.ui.news_details.NewsDetailsScreenRoute
+import ir.dorsa.news_task.ui.news_list.NewsListScreenRoute
 import ir.dorsa.news_task.ui.survey.SurveyScreenRoute
 
 @Composable

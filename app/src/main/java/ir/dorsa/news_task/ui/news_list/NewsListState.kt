@@ -1,4 +1,4 @@
-package ir.dorsa.news_task.ui.news
+package ir.dorsa.news_task.ui.news_list
 
 import ir.dorsa.news_task.data.data_source.remote.dto.News
 
