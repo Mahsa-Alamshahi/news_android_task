@@ -1,7 +1,6 @@
 package ir.dorsa.news_task.ui.news_list
 
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
@@ -36,6 +35,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import ir.dorsa.news_task.R
+import ir.dorsa.news_task.ui.components.theme.Red40
 
 
 @Composable
@@ -45,17 +45,21 @@ fun FilterDialog(
     onDismiss: () -> Unit
 ) {
 
-    val (selectedOption, onOptionSelected) = remember { mutableStateOf(SortType.values()[0].sortBy ) }
+    val (selectedOption, onOptionSelected) = remember { mutableStateOf(SortTypeEnum.values()[0].sortBy ) }
 
 
         Dialog(onDismissRequest = {
             onDismiss()
         }
         ) {
+
+
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
                 ) {
+
+
 
                     Column(
                         modifier = Modifier
@@ -84,17 +88,18 @@ fun FilterDialog(
 
                         Column(modifier= Modifier.fillMaxWidth()) {
 
-                            SortType.values().forEach { text ->
+                            SortTypeEnum.values().forEach { text ->
 
                                 Row(
                                     verticalAlignment = Alignment.CenterVertically,
                                     modifier = Modifier
                                         .selectable(
                                             selected = (text.sortBy == selectedOption),
-                                            onClick = { onOptionSelected(text.sortBy) },
+                                            onClick = {
+                                                onOptionSelected(text.sortBy) },
                                             role = Role.RadioButton
                                         )
-                                        .padding(4.dp)
+                                        .padding(start = 8.dp)
                                 ) {
 
 
@@ -112,12 +117,12 @@ fun FilterDialog(
                             }
                         }
 
+                        HorizontalDivider(modifier = Modifier.height(.5.dp).background(positiveButtonColor))
 
 
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(0.dp)
                         ) {
 
 
@@ -125,15 +130,15 @@ fun FilterDialog(
                                 onDismiss()
                             },
                                 modifier = Modifier.weight(1f),
-                                border = BorderStroke(0.dp, positiveButtonColor),
-                                shape = RoundedCornerShape(bottomStartPercent = 10),
-                                colors = ButtonDefaults.buttonColors(containerColor = Color.LightGray)
+                                shape = RoundedCornerShape(bottomStartPercent = 50),
+                                colors = ButtonDefaults.buttonColors(containerColor = Color.White)
                             ) {
 
-                                Text(text = "Cancel")
+                                Text(text = "Cancel", color= Color.DarkGray)
                                 Spacer(modifier = Modifier.size(ButtonDefaults.IconSpacing))
                                 Icon(imageVector = Icons.Default.Close,
                                     contentDescription = "Sort",
+                                    tint = Color.DarkGray,
                                     modifier = Modifier.size(ButtonDefaults.IconSize))
                             }
 
@@ -145,19 +150,19 @@ fun FilterDialog(
                                 onDismiss()
                             },
                                 modifier = Modifier.weight(1f),
-                                        border = BorderStroke(0.dp, positiveButtonColor),
-                            shape = RoundedCornerShape(bottomEndPercent = 10),
-                            colors = ButtonDefaults.buttonColors(containerColor = positiveButtonColor) ) {
-                                Text(text = "Sort")
+                            shape = RoundedCornerShape(bottomEndPercent = 50),
+                            colors = ButtonDefaults.buttonColors(containerColor = Color.White)
+                            ) {
+                                Text(text = "Sort", color = Red40)
                                 Spacer(modifier = Modifier.size(ButtonDefaults.IconSpacing))
                                 Icon(painter = painterResource(id = R.drawable.baseline_sort_24),
                                     contentDescription = "Sort",
+                                    tint= Red40,
                                     modifier = Modifier.size(ButtonDefaults.IconSize))
                             }
 
                         }
                     }
-
 
 
                     Icon(
@@ -170,6 +175,9 @@ fun FilterDialog(
                             .padding(all = 16.dp)
                             .align(alignment = Alignment.TopCenter)
                     )
+
+
+
                 }
         }
 
@@ -177,8 +185,6 @@ fun FilterDialog(
 
 @Preview
 @Composable
-fun previewDialog(){
-
+fun PreviewDialog(){
 FilterDialog(onFilterClick = {}) {}
-
 }

@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -86,14 +85,6 @@ fun NewsListItem(news: News, onNewsClick: (News) -> Unit) {
                 ) {
 
 
-                    Column(
-                        modifier = Modifier
-                            .padding(start = 8.dp, top = 2.dp, bottom = 6.dp, end = 8.dp)
-                            .fillMaxSize(),
-                        verticalArrangement = Arrangement.SpaceBetween,
-                        horizontalAlignment = Alignment.Start
-                    ) {
-
 
                         Text(
                             text = news.title,
@@ -103,19 +94,12 @@ fun NewsListItem(news: News, onNewsClick: (News) -> Unit) {
                             color = Color.Black
                         )
 
-                        HorizontalDivider(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(.5.dp)
-                                .background(Color.Gray)
-                                .padding(top = 4.dp, bottom = 16.dp)
-                        )
 
 
                         Text(
-                            text = stringResource(R.string.news_date) + persianCalender.persianLongDateAndTime,
-                            modifier = Modifier.padding(bottom = 4.dp, top = 4.dp),
-                            maxLines = 1,
+                            text = persianCalender.persianLongDateAndTime,
+                            modifier = Modifier.padding(bottom = 8.dp, top = 8.dp),
+                            maxLines = 2,
                             style = MaterialTheme.typography.labelSmall,
                             fontWeight = FontWeight.Normal,
                             color = Color.Gray
@@ -132,7 +116,7 @@ fun NewsListItem(news: News, onNewsClick: (News) -> Unit) {
                         )
 
                     }
-                }
+
 
                 Card(
                     modifier = Modifier

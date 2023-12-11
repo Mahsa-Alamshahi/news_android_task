@@ -4,7 +4,6 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.orhanobut.logger.Logger
 import dagger.hilt.android.lifecycle.HiltViewModel
 import ir.dorsa.news_task.common.Resource
 import ir.dorsa.news_task.domain.usecase.GetNewsListUseCase
@@ -46,10 +45,10 @@ class NewsListViewModel @Inject constructor(
 
     fun filterList(filterBy: String) {
         when (filterBy) {
-            SortType.values()[0].sortBy -> {
+            SortTypeEnum.values()[0].sortBy -> {
                 sortByViewCount()
             }
-            SortType.values()[1].sortBy  -> {
+            SortTypeEnum.values()[1].sortBy  -> {
                 sortByDate()
             }
         }
@@ -58,7 +57,7 @@ class NewsListViewModel @Inject constructor(
 
 
    private fun sortByViewCount(){
-           _newsListState.value = NewsListState(newsList = _newsListState.value.newsList.sortedBy {
+           _newsListState.value = NewsListState(newsList = _newsListState.value.newsList.sortedByDescending {
                it.viewCount
            })
     }
