@@ -35,7 +35,6 @@ import androidx.compose.ui.unit.sp
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import ir.dorsa.news_task.R
-import ir.dorsa.news_task.common.datepicker.PersianCalendar
 import ir.dorsa.news_task.data.data_source.remote.dto.News
 
 
@@ -60,8 +59,6 @@ fun NewsDetailsScreen(news: News) {
     CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
 
 
-        val persianCalender = PersianCalendar()
-        persianCalender.timeInMillis = news.date.toLong()
 
 
         Column(modifier = Modifier.fillMaxSize()) {
