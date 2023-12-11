@@ -1,4 +1,4 @@
-package ir.dorsa.news_task.ui.theme
+package ir.dorsa.news_task.ui.components.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

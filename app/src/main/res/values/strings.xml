@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">News Task</string>
+    <string name="news_title">اخبار فوری</string>
+    <string name="news_date">"تاریخ خبر: "</string>
+    <string name="view_count">"تعداد بازدید: "</string>
+    <string name="descriptions">توضیحات</string>
+    <string name="username">نام کاربری</string>
+    <string name="register">ثبت</string>
 </resources>
